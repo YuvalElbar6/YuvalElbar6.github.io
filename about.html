@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About · Yuval Elbar</title>
+  <meta name="description" content="Yuval Elbar — software engineer and security researcher. Building a portfolio of CVEs across major vendors, with a focus on AI infrastructure and low-level components." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0e14'/%3E%3Ctext x='6' y='23' font-family='monospace' font-size='18' fill='%237ee787'%3E%26gt;_%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script>
+    (function () {
+      try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html"><span class="prompt">$</span> yuval elbar</a>
+      <div class="nav-links">
+        <a href="index.html">home</a>
+        <a href="writeups.html">writeups</a>
+        <a href="about.html" class="active">about</a>
+        <a data-link="github" href="#" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub" style="padding:6px 8px;">gh</a>
+        <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="wrap">
+      <div class="sec-head">
+        <h2><span class="prompt">$</span> cat about.md</h2>
+      </div>
+
+      <article class="prose">
+        <p>
+          I'm <strong>Yuval Elbar</strong> — a software engineer and independent security
+          researcher. My day-to-day background is building production Python systems, and
+          that engineering lens shapes how I hunt bugs: I read code the way it was written,
+          find the one line that quietly breaks an invariant, and prove the impact.
+        </p>
+        <p>
+          In my own time I build a portfolio of CVEs and vulnerability writeups across major
+          vendors, with a growing focus on <strong>low-level components</strong> and the
+          <strong>intersection of AI and security</strong>. Modern AI tooling — agents, MCP
+          gateways, ML checkpointing, inference runtimes — is being shipped fast, and the
+          classic bug classes (path traversal, SSRF, command injection, unsafe deserialization,
+          template injection) are showing up in brand-new places. That's the seam I like to work.
+        </p>
+        <p>
+          Everything here goes through <strong>coordinated vulnerability disclosure</strong>:
+          reported privately, embargoed until a fix ships, and only then written up. My findings
+          have been fixed by teams at Microsoft, Google, NVIDIA, IBM, NASA/JPL, Pydantic and others.
+          Some of this research has been published in <em>Digital Whisper</em> (Hebrew) and via
+          the <em>Cycode</em> research blog.
+        </p>
+
+        <h2><span class="prompt">$</span> focus areas</h2>
+        <ul>
+          <li>AI / ML infrastructure security — agents, MCP servers, inference &amp; checkpointing</li>
+          <li>Cloud solution accelerators and reference architectures</li>
+          <li>Low-level components and memory-adjacent bugs</li>
+          <li>Web &amp; API vulnerability classes: SSRF, path traversal, injection, deserialization</li>
+        </ul>
+
+        <h2><span class="prompt">$</span> contact</h2>
+        <p>Reaching out about a finding, a collaboration, or a role? The best channels:</p>
+        <div class="contact-row">
+          <a class="contact-link" data-link="github" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 22.29 24 17.79 24 12.5 24 5.87 18.63.5 12 .5z"/></svg>
+            GitHub
+          </a>
+          <a class="contact-link" data-link="linkedin" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© <span id="year"></span> Yuval Elbar</span>
+      <div class="footer-links">
+        <a data-link="github" href="#" target="_blank" rel="noopener">GitHub</a>
+        <a data-link="linkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/site.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
