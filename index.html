@@ -1,88 +1,18 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yuval Elbar · Security Research</title>
-  <meta name="description" content="Security researcher. Vulnerability writeups and CVEs across cloud, AI infrastructure, and low-level components — Microsoft, Google, NVIDIA, IBM, NASA/JPL and more." />
-  <meta name="author" content="Yuval Elbar" />
-  <meta property="og:title" content="Yuval Elbar · Security Research" />
-  <meta property="og:description" content="Vulnerability writeups and CVEs across cloud, AI infrastructure, and low-level components." />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0e14'/%3E%3Ctext x='6' y='23' font-family='monospace' font-size='18' fill='%237ee787'%3E%26gt;_%3C/text%3E%3C/svg%3E" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <script>
-    (function () {
-      try {
-        var t = localStorage.getItem("theme");
-        if (t) document.documentElement.setAttribute("data-theme", t);
-      } catch (e) {}
-    })();
-  </script>
-</head>
-<body>
-  <nav class="nav">
-    <div class="nav-inner">
-      <a class="brand" href="index.html"><span class="prompt">$</span> yuval elbar</a>
-      <div class="nav-links">
-        <a href="index.html" class="active">home</a>
-        <a href="writeups.html">writeups</a>
-        <a href="about.html">about</a>
-        <a data-link="github" href="#" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub" style="padding:6px 8px;">gh</a>
-        <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle theme"></button>
-      </div>
-    </div>
-  </nav>
-
-  <main>
-    <div class="wrap">
-      <section class="hero">
-        <div class="term"><span class="prompt">$</span> whoami</div>
-        <h1>I break things vendors ship,<br />then help them fix it.</h1>
-        <p class="tagline">
-          Security researcher focused on <strong>cloud platforms</strong>,
-          <strong>AI infrastructure</strong>, and the low-level plumbing underneath.
-          I hunt vulnerabilities in production code from major vendors and drive them
-          through coordinated disclosure to a real fix.
-        </p>
-        <div class="chips">
-          <span class="chip"><span class="dot">●</span> Microsoft</span>
-          <span class="chip"><span class="dot">●</span> Google</span>
-          <span class="chip"><span class="dot">●</span> NVIDIA</span>
-          <span class="chip"><span class="dot">●</span> IBM</span>
-          <span class="chip"><span class="dot">●</span> NASA / JPL</span>
-          <span class="chip"><span class="dot">●</span> Pydantic</span>
-          <span class="chip"><span class="dot">●</span> aio-libs</span>
-        </div>
-      </section>
-
-      <section>
-        <div class="sec-head">
-          <h2><span class="prompt">$</span> ls -lt ~/writeups</h2>
-          <a class="more" href="writeups.html">view all (<span id="post-count">…</span>) →</a>
-        </div>
-        <div id="recent-posts" class="post-list">
-          <div class="loading">// loading writeups…</div>
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-      <span>© <span id="year"></span> Yuval Elbar · built as a static notepad</span>
-      <div class="footer-links">
-        <a data-link="github" href="#" target="_blank" rel="noopener">GitHub</a>
-        <a data-link="linkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-    </div>
-  </footer>
-
-  <script type="module" src="assets/js/site.js"></script>
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Security research by Yuval Elbar — vulnerability writeups and CVEs across cloud platforms, AI infrastructure, and low-level components. Findings fixed by Microsoft, Google, NVIDIA, IBM, NASA/JPL, Pydantic and more."
+    />
+    <meta name="theme-color" content="#0b0b0f" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Yuval Elbar — Security Research</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

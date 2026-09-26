@@ -1,120 +1,129 @@
-# yuval elbar · security research notepad
+# Engineering Blog
 
-A static portfolio of vulnerability writeups and CVEs. No framework, no build step —
-plain HTML/CSS/JS served directly by GitHub Pages.
+A team engineering blog built for real technical writing: markdown posts with dark syntax-highlighted code blocks and copy buttons, computed reading time, and series navigation that threads multi-part posts together.
 
-Live: **https://yuvalelbar6.github.io** (once Pages is enabled — see below)
+## Overview
 
-## How it works
+Engineering Blog is the publishing home of a technical team that writes publicly — postmortems, design writeups, and running-in-production notes. It ships as the blog of Halyard, a fictional webhook-delivery platform, seeded with a two-part series: a postmortem of a retry storm and the design writeup of the pipeline rebuilt afterwards. Replace the config data and the markdown files and it becomes your team's blog.
 
-| File | Purpose |
-|------|---------|
-| `index.html` | Home — intro + most recent writeups |
-| `writeups.html` | Full list with search + severity filter |
-| `post.html?p=<slug>` | Renders a single writeup from Markdown |
-| `about.html` | About / contact |
-| `posts.json` | **The manifest** — one entry per writeup (drives every list) |
-| `writeups/<slug>.md` | The writeup content, in Markdown |
-| `assets/css/style.css` | All styling (dark + light themes) |
-| `assets/js/site.js` | Theme toggle, list rendering, Markdown viewer |
+Every post is a markdown file in `content/posts/`. Dropping a new file in creates its page at `/writing/<filename>/` — frontmatter carries the title, date, author, tags, and an optional series name and part number. Posts that share a series name are threaded together: a crimson line connects them in the index list, and each post carries previous/next series navigation with part labels.
 
-Markdown is rendered client-side with [marked](https://marked.js.org/) +
-[highlight.js](https://highlightjs.org/) from a CDN.
+Reading is the product. Prose is set in a serif at a comfortable ~68ch measure, every fenced code block renders on a dark, syntax-highlighted surface with a language label and a copy button that copies the code exactly, and each post shows a reading time computed from its word count. The whole site is statically built — posts are fully readable with JavaScript disabled (the copy buttons are a progressive enhancement).
 
-## Adding a new writeup
+## Features
 
-1. Create `writeups/my-new-finding.md` (write in Markdown; fenced code blocks get
-   syntax highlighting; blockquotes starting with `[!warning]`, `[!danger]`, `[!note]`,
-   or `[!tip]` become callout boxes).
-2. Add one entry to the top of `posts.json`:
+- Markdown-driven posts: one file in `content/posts/` per post, each with its own directly loadable page under `/writing/`
+- Build-time syntax highlighting for fenced code blocks (TypeScript, SQL, YAML, diff, and every other Prism language) on a dark surface with a language label
+- Copy button on every code block that copies the code exactly, with a "Copied" confirmation — added after hydration, absent without JavaScript
+- Reading time computed in a typed utility from prose word count plus code-line count, shown in the index list and on every post
+- Series support: posts sharing a `series` frontmatter value get part labels, a crimson thread connecting them in the index, and previous/next series navigation on each post
+- Index page listing every post with date, tags, reading time, and excerpt, newest first
+- About section with the team's authors and roles, driven by config data
+- Four-question FAQ with `FAQPage` JSON-LD, plus `BlogPosting` JSON-LD on every post
+- Semantic article markup, keyboard-accessible controls, visible focus states, skip link, and reduced-motion support; layouts verified down to a 320px viewport
 
-   ```json
-   {
-     "slug": "my-new-finding",
-     "title": "My New Finding",
-     "date": "2026-10-01",
-     "severity": "high",
-     "vendor": "Acme Corp",
-     "product": "acme-thing",
-     "cve": "CVE-2026-99999",
-     "cwe": "CWE-79",
-     "id": "GHSA-xxxx-xxxx-xxxx",
-     "status": "Fixed in 2.0.0",
-     "role": "Reporter",
-     "tags": ["xss", "web"],
-     "advisory": "https://github.com/acme/acme-thing/security/advisories/...",
-     "summary": "One-sentence summary shown in the list."
-   }
-   ```
+## Tech stack
 
-   `slug` must match the `.md` filename. `severity` is one of
-   `critical` / `high` / `medium` / `low` / `info`. That's it — the home page,
-   the writeups list, and the article header all update automatically.
+- **Language:** TypeScript
+- **Framework:** React 19
+- **Build tool:** Vite
+- **Content:** Markdown files parsed in `src/lib/`, highlighted with Prism
+- **Styling:** Plain hand-written CSS with centralized design tokens
+- **Linting:** ESLint
 
-## Configure your links
+## Getting started
 
-Edit the `SITE` object at the top of [`assets/js/site.js`](assets/js/site.js):
+### Prerequisites
 
-```js
-const SITE = {
-  github:   "https://github.com/YuvalElbar6",
-  linkedin: "https://www.linkedin.com/in/REPLACE-ME",  // ← set this
-};
-```
+- Node.js 22 or newer
+- npm
 
-## Run locally
-
-The site is plain static files, but it fetches `posts.json` and `.md` files, so it
-must be served over HTTP (not opened as `file://`). Two ways:
-
-```bash
-# Option 1 — no tooling, serve the files as-is
-python -m http.server 4173      # → http://localhost:4173
-
-# Option 2 — via Vite (hot reload)
-npm install
-npm run dev                     # → http://localhost:5173
-```
-
-## Build (Vite)
-
-The project is also a [Vite](https://vitejs.dev/) app so it can be deployed on hosts
-that expect a JS framework (e.g. Hostinger). The build bundles the four HTML pages and
-copies the runtime data (`posts.json`, `writeups/`, `assets/papers/`) into `dist/`:
+### Installation
 
 ```bash
 npm install
-npm run build      # → outputs a complete static site to dist/
-npm run preview    # → serve the built dist/ at http://localhost:4173
 ```
 
-`base` is set to `./` (relative), so the built site works from a domain root, a
-subfolder, or a user Pages site without changes.
+### Development
 
-## Deploy — Hostinger
+```bash
+npm run dev
+```
 
-Hostinger's web-app deploy detects the framework and runs the build:
+Open the local URL printed by the development server.
 
-- **Framework:** Vite
-- **Build command:** `npm run build`
-- **Output / publish directory:** `dist`
-- **Install command:** `npm install`
+## Available scripts
 
-(If you use Hostinger's *classic* Git deploy instead of the framework deploy, point it
-at this repo and serve the root directly — no build needed, since the raw files also
-work as a static site.)
+- `npm run dev` — start the local development server
+- `npm run build` — type-check and create a production build
+- `npm run lint` — run ESLint
+- `npm run preview` — preview the production build locally
 
-## Deploy — GitHub Pages
+## Project structure
 
-This repo is named `YuvalElbar6.github.io`, so it's a **user site** served from the
-repo root:
+```text
+content/
+└── posts/          # One markdown file per post
+src/
+├── App.tsx
+├── main.tsx
+├── components/     # Header, footer, masthead, post list, article body, series nav, FAQ
+├── data/           # site.json — every word of site chrome and FAQ copy
+├── icons/          # Original SVG wordmark and series-thread marks
+├── lib/            # Markdown load + Prism highlight
+├── pages/          # Home, post, and not-found routes
+├── styles/         # global.css — design tokens and all styling
+├── types/          # Shared content types
+└── utils/          # Reading time, series navigation, dates, paths
+public/
+└── favicon.svg
+scripts/
+└── prerender.mjs   # Copies index.html to each /writing/<slug>/ path
+```
 
-1. `git add -A && git commit -m "Launch security research portfolio"`
-2. `git push origin main`
-3. On GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a branch**,
-   Branch: `main` / `/ (root)`, Save.
-4. It goes live at `https://yuvalelbar6.github.io` within a minute or two.
+## Personalizing
 
-The `.nojekyll` file tells Pages to serve everything as-is (no Jekyll processing).
-Because the raw files work without a build, GitHub Pages can serve straight from the
-repo root — no Action required.
+### Content and business data
+
+- `content/posts/*.md` — the posts. Each file's name becomes its URL (`retry-storm-postmortem.md` → `/writing/retry-storm-postmortem/`). Frontmatter fields: `title`, `date` (YYYY-MM-DD), `author` (should match a name in `site.json` to show a role), `tags` (list), and optional `series` + `part` for multi-part writing — posts with the same `series` string are threaded together automatically. Add a post by adding a file; delete the two Halyard posts when you start writing.
+- `src/data/site.json` — everything else written on the site: blog name and wordmark words, description and site URL, masthead copy, navigation and footer links, the about section, the author list (name + role), and all FAQ questions and answers (which also feed the `FAQPage` JSON-LD).
+
+### Branding and styles
+
+- `src/styles/global.css` — the Google Fonts import (Newsreader, Source Sans 3, Courier Prime) and every design token sit in the `:root` block at the top: page and zinc surfaces, ink tones, the single crimson accent, hairlines, the dark code-block palette, fonts, the ~68ch reading measure, and page widths. Component rules and the responsive breakpoints (1024px, 900px, 640px, 360px) follow in the same file.
+- Reading-time pace lives in `src/utils/readingTime.ts` (`PROSE_WORDS_PER_MINUTE`, `CODE_LINES_PER_MINUTE`).
+
+### Images
+
+There is no photography — the only artwork is original SVG. The pennant wordmark is `src/icons/Wordmark.tsx`, the series-thread marks are `src/icons/ThreadNode.tsx` and `src/icons/ThreadRule.tsx`, and the favicon is `public/favicon.svg`. Edit the SVGs in place; they inherit the accent color from the CSS tokens.
+
+### Routes and features
+
+- `/` is `src/pages/HomePage.tsx`; post pages are `src/pages/PostPage.tsx`, loaded from every markdown file in `src/lib/posts.ts`. The `/writing/` URL prefix lives in `src/utils/paths.ts`.
+- Series previous/next resolution is `src/utils/series.ts`; reading time is `src/utils/readingTime.ts`; date formatting is centralized in `src/utils/formatDate.ts`.
+- The copy-button enhancement for code blocks lives in `src/components/ArticleBody.tsx`.
+- A minimal not-found page is `src/pages/NotFoundPage.tsx`.
+- `scripts/prerender.mjs` copies `index.html` to each `/writing/<slug>/` path so those URLs load on a static host.
+
+### Environment variables
+
+This project does not require environment variables.
+
+## Production build
+
+```bash
+npm run build
+npm run preview
+```
+
+Production files are written to `dist/`.
+
+## License
+
+MIT. See `LICENSE`; reuse and adapt this template in personal or commercial
+projects.
+
+## Screenshots
+
+- Thumbnail: `preview/engineering-blog-thumbnail.png`
+- Full page: `preview/engineering-blog-homepage.png`
