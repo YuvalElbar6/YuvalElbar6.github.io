@@ -1,0 +1,15 @@
+{
+  "name": "yuval-elbar-security-research",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Static portfolio of vulnerability writeups and CVEs by Yuval Elbar.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173"
+  },
+  "devDependencies": {
+    "vite": "^5.4.10"
+  }
+}

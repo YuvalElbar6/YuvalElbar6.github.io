@@ -64,14 +64,47 @@ const SITE = {
 
 ## Run locally
 
-Because the site fetches `posts.json` and `.md` files, open it over HTTP (not `file://`):
+The site is plain static files, but it fetches `posts.json` and `.md` files, so it
+must be served over HTTP (not opened as `file://`). Two ways:
 
 ```bash
-python -m http.server 4173
-# then open http://localhost:4173
+# Option 1 — no tooling, serve the files as-is
+python -m http.server 4173      # → http://localhost:4173
+
+# Option 2 — via Vite (hot reload)
+npm install
+npm run dev                     # → http://localhost:5173
 ```
 
-## Deploy (GitHub Pages)
+## Build (Vite)
+
+The project is also a [Vite](https://vitejs.dev/) app so it can be deployed on hosts
+that expect a JS framework (e.g. Hostinger). The build bundles the four HTML pages and
+copies the runtime data (`posts.json`, `writeups/`, `assets/papers/`) into `dist/`:
+
+```bash
+npm install
+npm run build      # → outputs a complete static site to dist/
+npm run preview    # → serve the built dist/ at http://localhost:4173
+```
+
+`base` is set to `./` (relative), so the built site works from a domain root, a
+subfolder, or a user Pages site without changes.
+
+## Deploy — Hostinger
+
+Hostinger's web-app deploy detects the framework and runs the build:
+
+- **Framework:** Vite
+- **Build command:** `npm run build`
+- **Output / publish directory:** `dist`
+- **Install command:** `npm install`
+
+(If you use Hostinger's *classic* Git deploy instead of the framework deploy, point it
+at this repo and serve the root directly — no build needed, since the raw files also
+work as a static site.)
+
+## Deploy — GitHub Pages
 
 This repo is named `YuvalElbar6.github.io`, so it's a **user site** served from the
 repo root:
@@ -83,3 +116,5 @@ repo root:
 4. It goes live at `https://yuvalelbar6.github.io` within a minute or two.
 
 The `.nojekyll` file tells Pages to serve everything as-is (no Jekyll processing).
+Because the raw files work without a build, GitHub Pages can serve straight from the
+repo root — no Action required.
