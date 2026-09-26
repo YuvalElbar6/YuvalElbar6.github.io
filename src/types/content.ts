@@ -36,7 +36,7 @@ export type SiteContent = {
     portraitAlt?: string;
   };
   authors: Author[];
-  faq: { heading: string; lede: string; items: Faq[] };
+  faq?: { heading: string; lede: string; items: Faq[] };
   footer: { note: string; links: NavLink[]; colophon: string };
 };
 

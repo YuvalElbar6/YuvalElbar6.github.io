@@ -18,8 +18,7 @@
   },
   "nav": [
     { "label": "Writing", "href": "/#writing" },
-    { "label": "About", "href": "/#about" },
-    { "label": "FAQ", "href": "/#faq" }
+    { "label": "About", "href": "/#about" }
   ],
   "writing": {
     "heading": "Writing",
@@ -33,34 +32,12 @@
       "Everything here goes through coordinated vulnerability disclosure: reported privately, embargoed until a fix ships, and only then written up. My findings have been fixed by teams at Microsoft, Google, NVIDIA, IBM, NASA/JPL, Pydantic and others. Some of this research has been published in Digital Whisper (Hebrew) and via the Cycode research blog."
     ],
     "authorsHeading": "Who writes here",
-    "portrait": "/yuval-elbar.jpg",
+    "portrait": "/yuval-elbar.png",
     "portraitAlt": "Yuval Elbar"
   },
   "authors": [
     { "name": "Yuval Elbar", "role": "Security researcher" }
   ],
-  "faq": {
-    "heading": "Questions I get",
-    "lede": "How this blog works, in four answers.",
-    "items": [
-      {
-        "question": "Are these real, disclosed vulnerabilities?",
-        "answer": "Yes. Every writeup here is a real finding that went through coordinated disclosure — reported privately, embargoed until the vendor shipped a fix, and only then published. Where a CVE or GHSA advisory exists, it's linked in the post."
-      },
-      {
-        "question": "Did you find all of these yourself?",
-        "answer": "Most are my own discoveries. A couple are collaborations or contributions, and I label those honestly in the post — for example, the aiohttp entry is an upstream fix I authored for a vulnerability someone else reported, and the pydantic-ai SSRF was co-reported."
-      },
-      {
-        "question": "Can I reproduce or reuse the payloads?",
-        "answer": "The payloads and code are shown for defenders and for the record, against software that has since been patched. Test only against systems you own or are authorized to test. Update to the fixed versions linked in each post."
-      },
-      {
-        "question": "How can I get in touch?",
-        "answer": "For a finding in something I've researched, a collaboration, or a role, reach me on LinkedIn or GitHub — both are linked in the footer."
-      }
-    ]
-  },
   "footer": {
     "note": "Security research and coordinated disclosure. Vulnerability writeups across cloud and AI infrastructure.",
     "links": [

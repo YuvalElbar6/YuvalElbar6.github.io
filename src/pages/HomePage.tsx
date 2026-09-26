@@ -1,5 +1,4 @@
 import { AboutSection } from '../components/AboutSection';
-import { FaqSection } from '../components/FaqSection';
 import { Masthead } from '../components/Masthead';
 import { PostList } from '../components/PostList';
 import { SiteFooter } from '../components/SiteFooter';
@@ -10,28 +9,11 @@ import type { SiteContent } from '../types/content';
 
 const site = siteData as SiteContent;
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: site.faq.items.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer,
-    },
-  })),
-};
-
 export function HomePage() {
   const posts = listPosts();
 
   return (
     <div className="page">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
       <a className="skip-link" href="#main-content">
         Skip to the writing
       </a>
@@ -52,7 +34,6 @@ export function HomePage() {
           </div>
         </section>
         <AboutSection />
-        <FaqSection faq={site.faq} />
       </main>
       <SiteFooter />
     </div>
