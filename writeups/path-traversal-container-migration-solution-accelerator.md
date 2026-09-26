@@ -129,10 +129,16 @@ One last point worth internalizing concerns Starlette's path converter. Many dev
 
 ## Disclosure
 
-Reported to Microsoft through coordinated vulnerability disclosure; fixed in commit `3a0ec34`. This writeup was originally published in Hebrew in **Digital Whisper** (September 2026).
+Reported to Microsoft through coordinated vulnerability disclosure; fixed in commit `3a0ec34`.
+
+> [!note] Originally published in Digital Whisper
+> This research first appeared in Hebrew in **Digital Whisper** (September 2026).
+> 📄 **[Read the original article (Hebrew, PDF)](assets/papers/path-traversal-container-migration-digital-whisper-he.pdf)**
 
 ## References
 
+- [Original article — Digital Whisper, Sept 2026 (Hebrew, PDF)](assets/papers/path-traversal-container-migration-digital-whisper-he.pdf)
+- [Digital Whisper magazine](https://www.digitalwhisper.co.il/)
 - [Container-Migration-Solution-Accelerator (GitHub)](https://github.com/microsoft/Container-Migration-Solution-Accelerator)
 - [CWE-22: Improper Limitation of a Pathname to a Restricted Directory (MITRE)](https://cwe.mitre.org/data/definitions/22.html)
 - [Path Traversal (OWASP)](https://owasp.org/www-community/attacks/Path_Traversal)

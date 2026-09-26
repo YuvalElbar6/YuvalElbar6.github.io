@@ -1,5 +1,21 @@
 [
   {
+    "slug": "deer-flow-mcp-unauth-rce",
+    "title": "Unauthenticated MCP Config Disclosure → RCE in ByteDance deer-flow",
+    "date": "2026-09-24",
+    "severity": "critical",
+    "vendor": "ByteDance",
+    "product": "deer-flow",
+    "cve": null,
+    "cwe": "CWE-306, CWE-78",
+    "id": "deer-flow#1646",
+    "status": "Fix proposed (PR #1646)",
+    "role": "Independent discovery · private report",
+    "tags": ["auth-bypass", "rce", "mcp", "info-disclosure"],
+    "advisory": "https://github.com/bytedance/deer-flow/pull/1646",
+    "summary": "The MCP config API leaked env/headers/OAuth creds with no auth, and let anyone rewrite an MCP server's stdio command — turning tool init into backend RCE, and host takeover via a mounted docker.sock."
+  },
+  {
     "slug": "nasa-ait-gui-unauthenticated-command-execution",
     "title": "Unauthenticated Command Execution in NASA's AIT-GUI",
     "date": "2026-09-18",
