@@ -1,48 +1,31 @@
 {
-  "name": "engineering-blog",
+  "name": "yuval-elbar-security-research",
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Team engineering blog with markdown posts, dark syntax-highlighted code blocks with copy buttons, reading time, and series navigation.",
+  "description": "Security research portfolio — vulnerability writeups and CVEs by Yuval Elbar.",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build && node scripts/prerender.mjs",
-    "lint": "eslint .",
     "preview": "vite preview"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=20"
   },
-  "keywords": [
-    "react",
-    "typescript",
-    "vite",
-    "blog",
-    "engineering-blog",
-    "markdown",
-    "developer-blog"
-  ],
-  "license": "MIT",
   "dependencies": {
     "marked": "^17.0.1",
     "prismjs": "^1.30.0",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
-    "react-router-dom": "^7.13.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0"
   },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "@types/node": "^24.13.3",
+    "@types/node": "^22.10.2",
     "@types/prismjs": "^1.26.6",
-    "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.5",
-    "@vitejs/plugin-react": "^6.1.1",
-    "eslint": "^10.9.1",
-    "eslint-plugin-react-hooks": "^7.1.1",
-    "eslint-plugin-react-refresh": "^0.5.5",
-    "globals": "^17.11.0",
-    "typescript": "~6.0.2",
-    "typescript-eslint": "^8.68.0",
-    "vite": "^8.2.2"
+    "@types/react": "^18.3.17",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "~5.6.3",
+    "vite": "^5.4.11"
   }
 }
