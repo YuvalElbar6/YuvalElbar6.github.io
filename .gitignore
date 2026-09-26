@@ -7,3 +7,6 @@ dist/
 
 # Claude Code local tooling
 .claude/
+
+dist-ssr/
+dist-standalone/
