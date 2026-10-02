@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build && node scripts/prerender.mjs",
-    "build:static": "vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/build-standalone.mjs",
+    "build:static": "npm run build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/build-standalone.mjs",
     "preview": "vite preview"
   },
   "engines": {

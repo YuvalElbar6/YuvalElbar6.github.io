@@ -4,16 +4,16 @@
     "lead": "Yuval",
     "tail": "Elbar"
   },
-  "siteUrl": "https://yuvalelbar6.github.io",
-  "description": "Security research by Yuval Elbar — vulnerability writeups and CVEs across cloud platforms, AI infrastructure, and the low-level components underneath. Reported through coordinated disclosure and fixed by Microsoft, Google, NVIDIA, IBM, NASA/JPL, Pydantic and more.",
+  "siteUrl": "https://www.yuval.gg",
+  "description": "Vulnerability writeups by Yuval Elbar — bugs found and reported in cloud platforms and AI infrastructure.",
   "masthead": {
-    "eyebrow": "Security research by Yuval Elbar",
-    "headline": "I break things vendors ship, then help them fix it.",
-    "dek": "Vulnerability writeups with real code and real payloads — cloud platforms, AI infrastructure, and the low-level plumbing underneath. Every finding here went through coordinated disclosure and shipped a fix.",
+    "eyebrow": "security research",
+    "headline": "Bugs I've found, written up.",
+    "dek": "Vulnerabilities I reported to vendors: what broke, how it was exploited, and the fix. Everything here was patched before it went public.",
     "meta": [
-      "Reported through coordinated disclosure",
-      "Fixed by Microsoft, Google, NVIDIA, IBM, NASA/JPL",
-      "Real advisories, real CVEs, real code"
+      "Coordinated disclosure",
+      "Cloud and AI infrastructure",
+      "Fixed by Microsoft, Google, NVIDIA, IBM, NASA/JPL"
     ]
   },
   "nav": [
@@ -22,14 +22,13 @@
   ],
   "writing": {
     "heading": "Writing",
-    "lede": "Every finding I've published, newest first — the vulnerability, the exploit, and the fix that shipped."
+    "lede": "Everything I've written up, newest first."
   },
   "about": {
     "heading": "About",
     "paragraphs": [
-      "I'm Yuval Elbar, a security researcher by trade, with hands-on experience writing production code. That engineering background shapes how I hunt bugs: I read code the way it was written, find the one line that quietly breaks an invariant, and prove the impact.",
-      "In my own time I build a portfolio of CVEs and vulnerability writeups across major vendors, with a growing focus on low-level components and the intersection of AI and security. Modern AI tooling — agents, MCP gateways, ML checkpointing, inference runtimes — is being shipped fast, and the classic bug classes (path traversal, SSRF, command injection, unsafe deserialization, template injection) are showing up in brand-new places. That's the seam I like to work.",
-      "Everything here goes through coordinated vulnerability disclosure: reported privately, embargoed until a fix ships, and only then written up. My findings have been fixed by teams at Microsoft, Google, NVIDIA, IBM, NASA/JPL, Pydantic and others. Some of this research has been published in Digital Whisper (Hebrew) and via the Cycode research blog."
+      "I'm Yuval Elbar. I do security research — mostly finding and reporting bugs in cloud platforms and AI infrastructure. I come from a software background, so I read the code rather than fuzz blindly.",
+      "This is where I write things up once they're fixed. Everything was reported privately and patched before going public. Some of it also ran in Digital Whisper and on the Cycode blog."
     ],
     "authorsHeading": "Who writes here",
     "portrait": "/yuval-elbar.png",
@@ -39,13 +38,13 @@
     { "name": "Yuval Elbar", "role": "Security researcher" }
   ],
   "footer": {
-    "note": "Security research and coordinated disclosure. Vulnerability writeups across cloud and AI infrastructure.",
+    "note": "Vulnerability research and coordinated disclosure.",
     "links": [
       { "label": "Writing", "href": "/#writing" },
       { "label": "About", "href": "/#about" },
       { "label": "GitHub", "href": "https://github.com/YuvalElbar6" },
       { "label": "LinkedIn", "href": "https://www.linkedin.com/in/yuvalit-elbar/" }
     ],
-    "colophon": "© 2026 Yuval Elbar. Set in Newsreader, Source Sans 3, and Courier Prime."
+    "colophon": "© 2026 Yuval Elbar"
   }
 }
