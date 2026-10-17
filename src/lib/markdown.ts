@@ -37,7 +37,10 @@ export function renderMarkdown(markdown: string): string {
 export function excerptFromMarkdown(markdown: string, length = 200): string {
   const withoutCode = markdown.replace(/```[\s\S]*?```/g, ' ');
   const plain = withoutCode
-    .replace(/^---[\s\S]*?---/, '')
+    .replace(/^---[\s\S]*?---\s*/, '')
+    // Drop a leading bold metadata line, e.g. "**Vendor · Severity · CWE · Fix**",
+    // so the card excerpt starts with the actual summary sentence.
+    .replace(/^\s*\*\*[^\n]*·[^\n]*\*\*\s*/, '')
     .replace(/[#>*_`[\]]/g, '')
     .replace(/\s+/g, ' ')
     .trim();
